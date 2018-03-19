@@ -6,7 +6,7 @@ More specifically, this application fulfills these features:
 * Vault features are protected and require local authentication to be displayed
 * Only the credentials that are relevant to the authenticated user are displayed
 * Provides users the capability to create and delete domains; allows users to confirm deletion of a chosen domain
-* Provides users the capability to create and delete credentials under a given fomain; allows users to confirm deletion of any chosen credentials
+* Provides users the capability to create and delete credentials under a given domain; allows users to confirm deletion of any chosen credentials
 * Users can select any of their saved domains from a dropdown menus, which shows their associated credentials
 * Credentials under a domain are displayed in a table; additionally, they are hidden when first loaded up, and can individually be shown
 * Credentials are saved in a MongoDB database to store data after application restarts
