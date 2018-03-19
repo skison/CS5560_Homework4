@@ -1,3 +1,4 @@
+### CS5560 Midterm - Samuel Kison
 This MEAN application allows users to store username-password combos for specific domains in their own personal 'vaults'. For the purposes of this assignment, I refer to these combinations as 'credentials'.
 
 More specifically, this application fulfills these features:
