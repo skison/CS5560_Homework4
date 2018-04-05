@@ -1,5 +1,5 @@
 abstract class BaseCtrl {
-
+  
   abstract model: any;
 
   // Get all

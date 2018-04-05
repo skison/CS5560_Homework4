@@ -1,0 +1,12 @@
+.table td,
+.table th {
+  width: 15%;
+}
+
+.bar {
+  fill: steelblue;
+}
+
+.bar:hover {
+  fill: brown;
+}

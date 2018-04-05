@@ -3,7 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { CatsComponent } from './cats/cats.component';
 
-import { CredentialsComponent } from './credentials/credentials.component';
+//import { CredentialsComponent } from './credentials/credentials.component';
+import { StocksComponent } from './stocks/stocks.component';
 
 import { AboutComponent } from './about/about.component';
 import { RegisterComponent } from './register/register.component';
@@ -17,10 +18,11 @@ import { AuthGuardLogin } from './services/auth-guard-login.service';
 //import { AuthGuardAdmin } from './services/auth-guard-admin.service';
 
 const routes: Routes = [
-  { path: '', component: AboutComponent },
+  { path: '', component: StocksComponent },
   { path: 'cats', component: CatsComponent },
   
-   { path: 'credentials', component: CredentialsComponent },
+   //{ path: 'credentials', component: CredentialsComponent },
+  { path: 'stocks', component: StocksComponent },
   
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },

@@ -7,13 +7,8 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a routerLink="/" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
-            <i class="fa fa-home"></i> Home
-          </a>
-        </li>
-        <li class="nav-item">
-          <a routerLink="/credentials" class="nav-link" routerLinkActive="active" *ngIf="auth.loggedIn">
-            <i class="fa fa-list"></i> Vault
+          <a routerLink="/stocks" class="nav-link" routerLinkActive="active" *ngIf="auth.loggedIn">
+            <i class="fa fa-list"></i> Stocks
           </a>
         </li>
         <li class="nav-item">

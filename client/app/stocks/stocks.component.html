@@ -1,0 +1,69 @@
+<app-loading [condition]="isLoading"></app-loading>
+
+<app-toast [message]="toast.message"></app-toast>
+
+<div class="card mb-3" *ngIf="!isLoading">
+
+    <svg dataNgInit="drawBarChart()" id="barchart" width="960" height="600"></svg>
+
+  <h4 class="card-header">Stocks</h4>
+  <div class="card-body">
+    
+	<form *ngIf="isEditing" class="form-inline" #form="ngForm" (ngSubmit)="editStock(stock)">
+	  <input class="form-control mr-2" type="text" name="stocksymbol" [(ngModel)]="stock.stocksymbol" placeholder="Symbol" required>
+	  <input class="form-control mr-2" type="number" name="stockamount" [(ngModel)]="stock.stockamount" placeholder="Amount" min="0" required>
+	  <input class="form-control mr-2" type="number" name="stockprice" [(ngModel)]="stock.stockprice" placeholder="Price" step="any" min="0" required>
+	  <button class="btn btn-sm btn-primary mr-2" type="submit" [disabled]="!form.form.valid"><i class="fa fa-floppy-o"></i> Save</button>
+	  <button class="btn btn-sm btn-warning" (click)="cancelEditing()"><i class="fa fa-times"></i> Cancel</button>
+	</form>
+    
+  </div>
+
+
+  <div class="card" *ngIf="!isEditing">
+    <h4 class="card-header">Your Stocks ({{stocks.length}})</h4>
+    <div class="card-body">
+    
+    <table class="table table-bordered">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Symbol</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Buy Price</th>
+            <th scope="col">Total Price</th>
+            <th scope="col">Current Value</th>
+            <th scope="col">Total Current Value</th>
+            <th scope="col">Options</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="stocks.length === 0">
+          <tr>
+            <td colspan="5">There are no stocks in the DB. Add new stocks below.</td>
+          </tr>  
+        </tbody>
+        <tbody>
+          <tr *ngFor="let stock of stocks">
+          <td>{{stock.stocksymbol}}</td>
+          <td>{{stock.stockamount}}</td>
+          <td>${{stock.stockprice}}</td>
+          <td>${{stock.stockamount*stock.stockprice}}</td>
+          <td *ngIf="stock.currentvalue >= 0">${{stock.currentvalue}}</td>                   <td *ngIf="stock.currentvalue == null">loading...</td> <td *ngIf="stock.currentvalue < 0">load failed</td>
+          <td *ngIf="stock.currentvalue >= 0">${{stock.stockamount*stock.currentvalue}}</td> <td *ngIf="stock.currentvalue == null">loading...</td> <td *ngIf="stock.currentvalue < 0">load failed</td>
+          <td>
+            <button class="btn btn-sm btn-primary" (click)="enableEditing(stock)"><i class="fa fa-pencil"></i> Edit</button> 
+            <button class="btn btn-sm btn-danger" (click)="deleteStock(stock)"><i class="fa fa-trash"></i> Delete</button>
+          </td>
+          </tr>  
+        </tbody>
+    </table>
+    
+      <form class="form-inline" [formGroup]="addStockForm" (ngSubmit)="addStock()">
+      <input class="form-control mr-2" type="text" name="stocksymbol" formControlName="stocksymbol" placeholder="Symbol">
+      <input class="form-control mr-2" type="text" name="stockamount" formControlName="stockamount" placeholder="Amount">
+      <input class="form-control mr-2" type="text" name="stockprice" formControlName="stockprice" placeholder="Price">
+        <button class="btn btn-primary" type="submit" [disabled]="!addStockForm.valid"><i class="fa fa-floppy-o"></i> Add Stock</button>
+      </form>
+    </div>
+  </div>
+
+</div>

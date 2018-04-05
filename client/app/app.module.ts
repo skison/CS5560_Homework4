@@ -5,7 +5,8 @@ import { RoutingModule } from './routing.module';
 import { SharedModule } from './shared/shared.module';
 import { CatService } from './services/cat.service';
 
-import { CredentialsService } from './services/credentials.service';
+//import { CredentialsService } from './services/credentials.service';
+import { StocksService } from './services/stocks.service';
 
 import { UserService } from './services/user.service';
 import { AuthService } from './services/auth.service';
@@ -13,7 +14,8 @@ import { AuthGuardLogin } from './services/auth-guard-login.service';
 //import { AuthGuardAdmin } from './services/auth-guard-admin.service';
 import { AppComponent } from './app.component';
 
-import { CredentialsComponent } from './credentials/credentials.component';
+//import { CredentialsComponent } from './credentials/credentials.component';
+import { StocksComponent } from './stocks/stocks.component';
 
 import { CatsComponent } from './cats/cats.component';
 import { AboutComponent } from './about/about.component';
@@ -24,6 +26,8 @@ import { AccountComponent } from './account/account.component';
 //import { AdminComponent } from './admin/admin.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
+import { D3Service } from 'd3-ng2-service'; //for d3 capabilities
+
 export function tokenGetter() {
   return localStorage.getItem('token');
 }
@@ -33,7 +37,8 @@ export function tokenGetter() {
     AppComponent,
     CatsComponent,
 	
-	CredentialsComponent,
+  //CredentialsComponent,
+    StocksComponent,
 	
     AboutComponent,
     RegisterComponent,
@@ -41,7 +46,8 @@ export function tokenGetter() {
     LogoutComponent,
     AccountComponent,
     //AdminComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    //TestD3Component // <-- declaration of the D3 Test component used below
   ],
   imports: [
     RoutingModule,
@@ -59,9 +65,12 @@ export function tokenGetter() {
     //AuthGuardAdmin,
     CatService,
 	
-	CredentialsService,
+    //CredentialsService,
+    StocksService,
 	
-    UserService
+    UserService,
+
+    D3Service //d3 service provider
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
