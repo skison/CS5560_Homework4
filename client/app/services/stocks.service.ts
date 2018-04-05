@@ -3,9 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
 import { Stock } from '../shared/models/stock.model';
-
-import { Domain } from '../shared/models/domain.model';
-
 //for unique users
 import { AuthService } from '../services/auth.service';
 

@@ -3,9 +3,7 @@ import { JwtModule } from '@auth0/angular-jwt';
 
 import { RoutingModule } from './routing.module';
 import { SharedModule } from './shared/shared.module';
-import { CatService } from './services/cat.service';
 
-//import { CredentialsService } from './services/credentials.service';
 import { StocksService } from './services/stocks.service';
 
 import { UserService } from './services/user.service';
@@ -14,10 +12,8 @@ import { AuthGuardLogin } from './services/auth-guard-login.service';
 //import { AuthGuardAdmin } from './services/auth-guard-admin.service';
 import { AppComponent } from './app.component';
 
-//import { CredentialsComponent } from './credentials/credentials.component';
 import { StocksComponent } from './stocks/stocks.component';
 
-import { CatsComponent } from './cats/cats.component';
 import { AboutComponent } from './about/about.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
@@ -35,9 +31,6 @@ export function tokenGetter() {
 @NgModule({
   declarations: [
     AppComponent,
-    CatsComponent,
-	
-  //CredentialsComponent,
     StocksComponent,
 	
     AboutComponent,
@@ -63,9 +56,6 @@ export function tokenGetter() {
     AuthService,
     AuthGuardLogin,
     //AuthGuardAdmin,
-    CatService,
-	
-    //CredentialsService,
     StocksService,
 	
     UserService,
