@@ -32,7 +32,15 @@ export default function setRoutes(app) {
   router.route('/stocks/update/:id').put(stocksCtrl.update);
   router.route('/stocks/delete/:id').delete(stocksCtrl.delete);
 
-  // Apply the routes to our application with the prefix /api
-  app.use('/api', router);
+ 
+  //allow cross-site api requests
+  app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
+
+   // Apply the routes to our application with the prefix /api
+   app.use('/api', router);
 
 }
